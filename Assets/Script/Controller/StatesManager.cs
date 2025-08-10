@@ -28,9 +28,11 @@ namespace Tundayne
             public bool isInteracting;
         }
 
+        public ResourcesManager r_manager;
         public ControllerStates statesManager;
         public ControllerStatics controllerStatics;
         public InputVariables input;
+        public Character character;
 
         #region References
         public Animator anim;
@@ -71,6 +73,9 @@ namespace Tundayne
 
             animatorHook = activeModel.AddComponent<AnimatorHook>();
             animatorHook.Init(this);
+
+            character = GetComponent<Character>();
+            character.LoadCharacter(r_manager);
         }
 
         void SetUpAnimator()

@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Third-person-game-unity.sln"
+    "dotnet.defaultSolution": "Third-Person-Shooter-Poligon.sln"
 }
