@@ -9,6 +9,7 @@ namespace Tundayne
         [System.Serializable]
         public class InputVariables
         {
+            [Header("Input")]
             public float horizontal;
             public float vertical;
             public float moveAmount;
@@ -29,10 +30,12 @@ namespace Tundayne
         }
 
         public ResourcesManager r_manager;
+        public WeaponManager w_manager;
         public ControllerStates statesManager;
         public ControllerStatics controllerStatics;
         public InputVariables input;
         public Character character;
+        public AnimatorHook a_hook;
 
         #region References
         public Animator anim;
@@ -57,6 +60,7 @@ namespace Tundayne
         #region Init
         public void Init()
         {
+            r_manager.Init();
             mTransform = this.transform;
             SetUpAnimator();
             rigid = GetComponent<Rigidbody>();
@@ -73,6 +77,8 @@ namespace Tundayne
 
             animatorHook = activeModel.AddComponent<AnimatorHook>();
             animatorHook.Init(this);
+
+            Init_WeaponManager();
 
             character = GetComponent<Character>();
             character.LoadCharacter(r_manager);
@@ -120,37 +126,37 @@ namespace Tundayne
 
         #region FixedUpdate
         public void FixedTick(float d)
-{
-    delta = d;
-    mTransform = activeModel.transform;
+        {
+            delta = d;
+            mTransform = activeModel.transform;
 
-    switch (currentState)
-    {
-        case CharState.normal:
-            statesManager.onGround = OnGround();
-            
-            if (statesManager.isAiming)
+            switch (currentState)
             {
-                // Khi nhắm
-                MovemtentAiming(); 
-            }
-            else
-            {
-                // Khi không nhắm
-                MovementNormal(); 
-            }
+                case CharState.normal:
+                    statesManager.onGround = OnGround();
 
-            RotationNormal(); 
-            break;
-        case CharState.onAir:
-            statesManager.onGround = OnGround();
-            break;
-        case CharState.cover:
-            break;
-        case CharState.vaulting:
-            break;
-    }
-}
+                    if (statesManager.isAiming)
+                    {
+                        // Khi nhắm
+                        MovemtentAiming();
+                    }
+                    else
+                    {
+                        // Khi không nhắm
+                        MovementNormal();
+                    }
+
+                    RotationNormal();
+                    break;
+                case CharState.onAir:
+                    statesManager.onGround = OnGround();
+                    break;
+                case CharState.cover:
+                    break;
+                case CharState.vaulting:
+                    break;
+            }
+        }
 
         void MovementNormal()
         {
@@ -273,6 +279,46 @@ namespace Tundayne
         }
         #endregion
 
+        #region Manager Functions
+
+        public void Init_WeaponManager()
+        {
+            CreateRuntimeWeapon(w_manager.mw_id, ref w_manager.m_weapon);
+            EquipRuntimeWeapon(w_manager.m_weapon);
+        }
+
+        public void CreateRuntimeWeapon(string id, ref RuntimeWeapon r_w_m)
+        {
+            Weapon w = r_manager.GetWeapon(id);
+            RuntimeWeapon rm = r_manager.runtime.WeaponToRuntimeWeapon(w);
+
+            GameObject go = Instantiate(w.modelPrefab);
+            rm.m_instance = go;
+            rm.w_actual = w;
+            rm.w_hook = go.GetComponent<WeaponHook>();
+            go.SetActive(false);
+
+            Transform p = anim.GetBoneTransform(HumanBodyBones.RightHand);
+            go.transform.parent = p;
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = Vector3.zero;
+            go.transform.localScale = Vector3.one;
+
+            r_w_m = rm;
+        }
+
+        public void EquipRuntimeWeapon(RuntimeWeapon rw)
+        {
+            rw.m_instance.SetActive(true);
+            a_hook.EquipWeapon(rw);
+
+            anim.SetFloat(StaticStrings.weaponType, rw.w_actual.weaponType);
+        }
+
+        #endregion
+
+        #region Physics
+
         bool OnGround()
         {
             Vector3 origin = mTransform.position;
@@ -288,6 +334,7 @@ namespace Tundayne
             }
             return false;
         }
+        #endregion
     }
 
     public enum CharState

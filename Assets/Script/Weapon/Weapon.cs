@@ -15,10 +15,13 @@ namespace Tundayne
 
         public float fireRate = 0.1f;
         public int magizineAmmo = 30;
+        public bool onIdleDisableOh;
         public int maxAmmo = 160;
 
+        public int weaponType;
+
         public AnimationCurve recoilY;
-        public AnimationCurve recoilX;
+        public AnimationCurve recoilZ;
 
     }
 }

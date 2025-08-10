@@ -18,6 +18,7 @@ namespace Tundayne
         public void Init()
         {
             InitWeapons();
+            InitMeshContainers();
         }
 
         public void InitWeapons()
@@ -47,7 +48,7 @@ namespace Tundayne
             return retVal;
         }
 
-        public void MeshContainers()
+        public void InitMeshContainers()
         {
             for (int i = 0; i < meshContainers.Length; i++)
             {

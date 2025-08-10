@@ -15,6 +15,7 @@ namespace Tundayne
         public static string aiming = "aiming";
         public static string crouch = "crouch";
         public static string sprint = "sprint";
+        public static string weaponType ="weaponType";
     }
 }
 

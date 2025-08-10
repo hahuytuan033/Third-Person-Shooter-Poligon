@@ -22,8 +22,11 @@ namespace Tundayne
         Transform aimPivot;
         Vector3 lookDir;
 
+        public bool onIdleDisableOh;
         public bool disable_o_h;
-        public bool disable_m_h = true; // Variable has been set to true.
+        public bool disable_m_h = true; 
+
+        RuntimeWeapon curWeapon;
 
         public void Init(StatesManager st)
         {
@@ -39,6 +42,17 @@ namespace Tundayne
             rh_target.parent = aimPivot;
             states.input.aimPosition = states.transform.position + transform.forward * 15;
             states.input.aimPosition.y += 1.4f;
+        }
+
+        public void EquipWeapon(RuntimeWeapon rw)
+        {
+            Weapon w = rw.w_actual;
+            lh_target = rw.w_hook.leftHandIK;
+
+            rh_target.localPosition = w.m_h_ik.pos;
+            rh_target.localEulerAngles = w.m_h_ik.rot;
+            onIdleDisableOh = rw.w_actual.onIdleDisableOh;
+            curWeapon = rw;
         }
 
         void OnAnimatorMove()
@@ -128,6 +142,14 @@ namespace Tundayne
                 t_m_weight = 0;
             }
 
+            if (!states.statesManager.isAiming)
+            {
+                if (onIdleDisableOh)
+                {
+                    o_h_weight = 0;
+                }
+            }
+
             l_weight = Mathf.Lerp(l_weight, t_l_weight, states.delta * 3);
             m_h_weight = Mathf.Lerp(m_h_weight, t_m_weight, states.delta * 9);
         }
@@ -190,8 +212,8 @@ namespace Tundayne
                     recoilIsInit = false;
                 }
 
-                offsetPosition = Vector3.forward;
-                offsetRotation = Vector3.right * 90;
+                offsetPosition = Vector3.forward * curWeapon.w_actual.recoilZ.Evaluate(recoilT);
+                offsetRotation = Vector3.right * 90 * curWeapon.w_actual.recoilY.Evaluate(recoilT);
 
                 rh_target.localPosition = basePosition + offsetPosition;
                 rh_target.localEulerAngles = baseRotation + offsetRotation;

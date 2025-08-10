@@ -15,3 +15,6 @@ MonoBehaviour:
   runtime: {fileID: 11400000, guid: 18b3077fde4583c479d92d8c6b851632, type: 2}
   all_weapons:
   - {fileID: 11400000, guid: 6ccd8730648a2884bb4e4ffc61843753, type: 2}
+  meshContainers:
+  - {fileID: 11400000, guid: c9db1684eadc37b49bfeba640c786650, type: 2}
+  - {fileID: 11400000, guid: 4430e6c1c1c6ded45a3c25ebfed2fd70, type: 2}
