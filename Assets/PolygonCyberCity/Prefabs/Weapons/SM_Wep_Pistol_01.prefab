@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 323050343516873139}
   - component: {fileID: 2566844918420264313}
   - component: {fileID: 1004929016}
+  - component: {fileID: 2160744342743298763}
   m_Layer: 0
   m_Name: SM_Wep_Pistol_01
   m_TagString: Untagged
@@ -107,6 +108,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -9159473748142301981, guid: 26b2961fce4a9e4488916841996064cb, type: 2}
+--- !u!114 &2160744342743298763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080190527328973996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cabb91069908045b0025ff883a545a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHandIK: {fileID: 0}
 --- !u!1 &7419482892977998895
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,6 +78,8 @@ namespace Tundayne
             animatorHook = activeModel.AddComponent<AnimatorHook>();
             animatorHook.Init(this);
 
+            a_hook = animatorHook;
+
             Init_WeaponManager();
 
             character = GetComponent<Character>();

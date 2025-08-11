@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcd88139ab865a4caed930573fe86a4, type: 3}
   m_Name: RuntimeReferences
   m_EditorClassIdentifier: 
-  runtime_weapons: []
+  runtime_weapons:
+  - curAmmo: 0
+    curCrrying: 0
+    m_instance: {fileID: 0}
+    w_hook: {fileID: 0}
+    w_actual: {fileID: 0}
