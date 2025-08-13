@@ -183,7 +183,9 @@ namespace Tundayne
 
             Vector3 dir = Vector3.zero;
             dir = mTransform.forward * (speed * input.moveAmount);
+            dir.y = rigid.velocity.y;
             rigid.velocity = dir;
+            
         }
 
         void RotationNormal()
@@ -302,8 +304,8 @@ namespace Tundayne
 
             Transform p = anim.GetBoneTransform(HumanBodyBones.RightHand);
             go.transform.parent = p;
-            go.transform.localPosition = Vector3.zero;
-            go.transform.localEulerAngles = Vector3.zero;
+            go.transform.localPosition = w.m_h_ik.pos;
+            go.transform.localEulerAngles = w.m_h_ik.rot;
             go.transform.localScale = Vector3.one;
 
             r_w_m = rm;

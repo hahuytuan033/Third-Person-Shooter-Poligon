@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23012431e07ea204a890b05c5a217dc3, type: 3}
   m_Name: Pistol_IKPosition
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0}
+  pos: {x: 0.1342476, y: 0.01454488, z: -0.04100158}
+  rot: {x: 9.778, y: 90, z: 270}
