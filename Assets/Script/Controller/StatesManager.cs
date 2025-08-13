@@ -83,7 +83,7 @@ namespace Tundayne
             Init_WeaponManager();
 
             character = GetComponent<Character>();
-            character.LoadCharacter(r_manager);
+            character.Init(this);
         }
 
         void SetUpAnimator()
@@ -185,7 +185,7 @@ namespace Tundayne
             dir = mTransform.forward * (speed * input.moveAmount);
             dir.y = rigid.velocity.y;
             rigid.velocity = dir;
-            
+
         }
 
         void RotationNormal()

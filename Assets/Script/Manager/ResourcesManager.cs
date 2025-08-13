@@ -14,6 +14,8 @@ namespace Tundayne
         public MeshContainer[] meshContainers;
         Dictionary<string, int> m_dict = new Dictionary<string, int>();
 
+        public Mask[] masks;
+        Dictionary<string, int> mask_dict = new Dictionary<string, int>();
 
         public void Init()
         {
@@ -72,6 +74,33 @@ namespace Tundayne
                 retVal = meshContainers[index];
             }
             return retVal;
+        }
+
+        void InitMaskDictionaries()
+        {
+            for (int i = 0; i < masks.Length; i++)
+            {
+                if (mask_dict.ContainsKey(masks[i].id))
+                {
+
+                }
+                else
+                {
+                    mask_dict.Add(masks[i].id, i);
+                }
+            }
+        }
+
+        public Mask GetMask(string id)
+        {
+            Mask reVal = null;
+            int index = -1;
+            if (mask_dict.TryGetValue(id, out index))
+            {
+                reVal = masks[index];
+            }
+
+            return reVal;
         }
     }
 

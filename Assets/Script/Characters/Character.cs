@@ -12,9 +12,11 @@ namespace Tundayne
 
         public CharObject hairObj;
         public CharObject eyebrowsObj;
+        public Mask maskObj;
 
         GameObject hair;
         GameObject eyebrows;
+        GameObject mask;
 
         public bool isFemale;
         public SkinnedMeshRenderer bodyRenderer;
@@ -22,19 +24,21 @@ namespace Tundayne
         public Transform eyebrowsBone;
         List<GameObject> instancedObj =new List<GameObject>();
 
+        ResourcesManager r_manager;
+
         public void Init(StatesManager st)
         {
+            r_manager = st.r_manager;
             anim = st.anim;
-
+            LoadCharacter();
             hair = LoadCharObject(hairObj);
             eyebrows = LoadCharObject(eyebrowsObj);
-
-
+            mask = LoadMask(maskObj);
         }
 
-        public void LoadCharacter(ResourcesManager r)
+        public void LoadCharacter()
         {
-            MeshContainer m = r.GetMesh(outfitId);
+            MeshContainer m = r_manager.GetMesh(outfitId);
             LoadMeshContainer(m);
         }
 
@@ -60,6 +64,14 @@ namespace Tundayne
         {
             bodyRenderer.sharedMesh = (isFemale) ? m.m_fish : m.m_mesh;
             bodyRenderer.sharedMaterial = m.materials;
+        }
+
+        public GameObject LoadMask(Mask m)
+        {
+            hair.SetActive(m.enableHair);
+            eyebrows.SetActive(m.enableEyebrows);
+
+            return LoadCharObject(m.obj);
         }
 
         public Transform GetBone(MyBones b)
