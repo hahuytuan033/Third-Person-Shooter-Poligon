@@ -74,4 +74,15 @@ namespace Tundayne
             return retVal;
         }
     }
+
+    public enum MyBones
+    {
+        head,
+        chest,
+        eyebrows,
+        rightHand,
+        leftHand,
+        rightUpperLeg,
+        hips
+    }
 }

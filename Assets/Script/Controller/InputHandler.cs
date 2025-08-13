@@ -104,11 +104,11 @@ namespace Tundayne
 
         void GetInput_Update()
         {
-            //aimInput = Input.GetMouseButton(1);
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                aimInput = !aimInput;
-            }
+            aimInput = Input.GetMouseButton(1);
+            // if (Input.GetKeyDown(KeyCode.M))
+            // {
+            //     aimInput = !aimInput;
+            // }
 
         }
 

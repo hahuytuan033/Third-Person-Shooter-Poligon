@@ -8,7 +8,7 @@ namespace Tundayne
     public class CharObject : ScriptableObject
     {
         public string id;
-        public HumanBodyBones parentBone;
+        public MyBones parentBone;
         public GameObject male_prefab;
         public GameObject female_prefab;
     }
