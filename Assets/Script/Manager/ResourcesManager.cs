@@ -21,10 +21,12 @@ namespace Tundayne
         {
             InitWeapons();
             InitMeshContainers();
+            InitMaskDictionaries();
         }
 
         public void InitWeapons()
         {
+            w_dict.Clear();
             for (int i = 0; i < all_weapons.Length; i++)
             {
                 if (w_dict.ContainsKey(all_weapons[i].id))
@@ -52,6 +54,7 @@ namespace Tundayne
 
         public void InitMeshContainers()
         {
+            m_dict.Clear();
             for (int i = 0; i < meshContainers.Length; i++)
             {
                 if (m_dict.ContainsKey(meshContainers[i].id))
@@ -78,15 +81,16 @@ namespace Tundayne
 
         void InitMaskDictionaries()
         {
+            mask_dict.Clear();
             for (int i = 0; i < masks.Length; i++)
             {
-                if (mask_dict.ContainsKey(masks[i].id))
+                if (mask_dict.ContainsKey(masks[i].obj.id))
                 {
 
                 }
                 else
                 {
-                    mask_dict.Add(masks[i].id, i);
+                    mask_dict.Add(masks[i].obj.id, i);
                 }
             }
         }

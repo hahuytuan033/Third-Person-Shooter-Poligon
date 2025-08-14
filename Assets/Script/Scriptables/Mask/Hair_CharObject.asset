@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ba709b981580c4c822a2fd3e8b9f4b, type: 3}
   m_Name: Hair_CharObject
   m_EditorClassIdentifier: 
-  id: 
+  id: hair
   parentBone: 0
-  male_prefab: {fileID: 0}
+  male_prefab: {fileID: 3700112338990474303, guid: aba647e33c8fc764d95a9a1124e643ce, type: 3}
   female_prefab: {fileID: 0}

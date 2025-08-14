@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ba709b981580c4c822a2fd3e8b9f4b, type: 3}
   m_Name: Eyebrows_CharObject
   m_EditorClassIdentifier: 
-  id: 
-  parentBone: 0
-  male_prefab: {fileID: 0}
-  female_prefab: {fileID: 0}
+  id: eyebrows
+  parentBone: 2
+  male_prefab: {fileID: 5559153844701920924, guid: b936b69d482dfa94090f83e72edfa64b, type: 3}
+  female_prefab: {fileID: 2193240416684015274, guid: a7ee934ddd1131e49b290f81c3b902f6, type: 3}
