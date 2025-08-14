@@ -18,3 +18,5 @@ MonoBehaviour:
   meshContainers:
   - {fileID: 11400000, guid: c9db1684eadc37b49bfeba640c786650, type: 2}
   - {fileID: 11400000, guid: 4430e6c1c1c6ded45a3c25ebfed2fd70, type: 2}
+  masks:
+  - {fileID: 11400000, guid: bba32db6bc99bb54583b2b622f053e1b, type: 2}
