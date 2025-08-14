@@ -150,7 +150,7 @@ namespace Tundayne
                 }
             }
 
-            l_weight = Mathf.Lerp(l_weight, t_l_weight, states.delta * 3);
+            l_weight = Mathf.Lerp(l_weight, t_l_weight, states.delta * 1);
             m_h_weight = Mathf.Lerp(m_h_weight, t_m_weight, states.delta * 9);
         }
 

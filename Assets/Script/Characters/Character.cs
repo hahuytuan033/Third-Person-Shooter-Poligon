@@ -22,7 +22,7 @@ namespace Tundayne
         public SkinnedMeshRenderer bodyRenderer;
 
         public Transform eyebrowsBone;
-        List<GameObject> instancedObj =new List<GameObject>();
+        List<GameObject> instancedObj = new List<GameObject>();
 
         ResourcesManager r_manager;
 
@@ -44,6 +44,11 @@ namespace Tundayne
 
         public GameObject LoadCharObject(CharObject o)
         {
+            if (o == null)
+            {
+                return null;
+            }
+
             Transform b = GetBone(o.parentBone);
             GameObject prefab = o.female_prefab;
             if (prefab == null || !isFemale)
@@ -55,9 +60,10 @@ namespace Tundayne
             go.transform.localPosition = Vector3.zero;
             go.transform.localEulerAngles = Vector3.zero;
             instancedObj.Add(go);
+            //go.transform.localScale = Vector3.one;
 
             return go;
-            
+
         }
 
         public void LoadMeshContainer(MeshContainer m)
