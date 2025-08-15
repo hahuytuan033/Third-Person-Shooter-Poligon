@@ -8,7 +8,7 @@ namespace Tundayne.UI
 {
     public class Crosshair : UIElement
     {
-        public float targetSpread = 30;
+        public FloatVariable targetSpread;
         public float maxSpread = 80;
         public float spreadSpeed = 5;
         public Parts[] parts;
@@ -19,7 +19,7 @@ namespace Tundayne.UI
         public override void Tick(float delta)
         {
             t = delta * spreadSpeed;
-            curSpread = Mathf.Lerp(curSpread, targetSpread, t);
+            curSpread = Mathf.Lerp(curSpread, targetSpread.value, t);
             for (int i = 0; i < parts.Length; i++)
             {
                 Parts p = parts[i];
