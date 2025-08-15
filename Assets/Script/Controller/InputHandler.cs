@@ -44,6 +44,7 @@ namespace Tundayne
                 return;
             }
             delta = Time.fixedDeltaTime;
+            AimPosition();
             GetInputFixedUpdate();
             InGame_UpdateStates_FixedUpdate();
             states.FixedTick(delta);
@@ -94,7 +95,7 @@ namespace Tundayne
                 return;
             }
             delta = Time.deltaTime;
-            AimPosition();
+            //AimPosition();
             GetInput_Update();
 
             InGame_UpdateStates_Update();
