@@ -18,7 +18,7 @@ MonoBehaviour:
   yRotationSpeed: 8
   xRotationSpeed: 8
   minAngle: -35
-  maxAngle: 35
+  maxAngle: 60
   normalZ: -3
   normalX: 0.3
   aimZ: -1.5
