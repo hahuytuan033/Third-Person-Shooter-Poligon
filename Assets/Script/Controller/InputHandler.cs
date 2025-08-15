@@ -22,6 +22,7 @@ namespace Tundayne
 
         public StatesManager states;
         public CameraHandler cameraHandler;
+        public PlayerReferences p_references;
 
         void Start()
         {
@@ -71,6 +72,15 @@ namespace Tundayne
             states.input.moveDirection = moveDirection;
 
             states.input.rotateDirection = cameraHandler.mTransform.forward;
+
+            if (states.rigid.velocity.sqrMagnitude > 0)
+            {
+                p_references.targetSpread.value = 65;
+            }
+            else
+            {
+                p_references.targetSpread.value = 0;
+            }
         }
         #endregion
 
