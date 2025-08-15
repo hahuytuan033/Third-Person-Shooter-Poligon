@@ -75,11 +75,11 @@ namespace Tundayne
 
             if (states.rigid.velocity.sqrMagnitude > 0)
             {
-                p_references.targetSpread.value = 65;
+                p_references.targetSpread.value = 120;
             }
             else
             {
-                p_references.targetSpread.value = 0;
+                p_references.targetSpread.value = 30;
             }
         }
         #endregion

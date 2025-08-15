@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeaaffa38454e440ab0917dc9cf22ee, type: 3}
   m_Name: TargetSpread
   m_EditorClassIdentifier: 
-  value: 0
+  value: 30

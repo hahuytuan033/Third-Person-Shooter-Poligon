@@ -15,4 +15,4 @@ MonoBehaviour:
   curAmmo: {fileID: 0}
   curArrying: {fileID: 0}
   health: {fileID: 0}
-  targetSpread: {fileID: 0}
+  targetSpread: {fileID: 11400000, guid: 942dd69d594711d4ba792fdf8fbe0a64, type: 2}
