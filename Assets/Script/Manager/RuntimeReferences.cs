@@ -46,6 +46,7 @@ namespace Tundayne
     {
         public int curAmmo;
         public int curCrrying;
+        public float lastFired;
         public GameObject m_instance;
         public WeaponHook w_hook;
         public Weapon w_actual;

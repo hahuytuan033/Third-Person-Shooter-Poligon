@@ -10,6 +10,13 @@ namespace Tundayne
         public string mw_id;
         public string sw_id;
 
+        RuntimeWeapon curWeapon;
+
+        public RuntimeWeapon GetCurrent()
+        {
+            return curWeapon;
+        }
+
         public RuntimeWeapon m_weapon;
         public RuntimeWeapon s_weapon;
     }

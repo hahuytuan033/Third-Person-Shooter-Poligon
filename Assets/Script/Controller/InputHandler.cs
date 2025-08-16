@@ -111,11 +111,17 @@ namespace Tundayne
         void InGame_UpdateStates_Update()
         {
             states.statesManager.isAiming = aimInput;
+            if (shootInput)
+            {
+                states.statesManager.isAiming = true;
+            }
+
         }
 
         void GetInput_Update()
         {
             aimInput = Input.GetMouseButton(1);
+            shootInput = Input.GetMouseButton(0);
             // if (Input.GetKeyDown(KeyCode.M))
             // {
             //     aimInput = !aimInput;

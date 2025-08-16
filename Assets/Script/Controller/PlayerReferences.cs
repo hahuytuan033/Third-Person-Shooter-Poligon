@@ -11,6 +11,7 @@ namespace Tundayne
         public IntVariable curArrying;
         public IntVariable health;
         public FloatVariable targetSpread;
+        public GameEvent e_UpdateUI;
     }
 }
 

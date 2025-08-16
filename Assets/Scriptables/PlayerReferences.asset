@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1ab5314f597da42b07729ae60f7c81, type: 3}
   m_Name: PlayerReferences
   m_EditorClassIdentifier: 
-  curAmmo: {fileID: 0}
-  curArrying: {fileID: 0}
-  health: {fileID: 0}
+  curAmmo: {fileID: 11400000, guid: a89192534da5f784ba2fdfb031193e16, type: 2}
+  curArrying: {fileID: 11400000, guid: e804fb25a0c2ca1489a7fdd3355e4b9f, type: 2}
+  health: {fileID: 11400000, guid: 613045c02cd43eb408da1118d9b0be4c, type: 2}
   targetSpread: {fileID: 11400000, guid: 942dd69d594711d4ba792fdf8fbe0a64, type: 2}
+  e_UpdateUI: {fileID: 0}
