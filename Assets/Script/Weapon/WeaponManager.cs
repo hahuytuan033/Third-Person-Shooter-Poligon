@@ -17,6 +17,11 @@ namespace Tundayne
             return curWeapon;
         }
 
+        public void SetCurrent(RuntimeWeapon rw)
+        {
+            curWeapon = rw;
+        }
+
         public RuntimeWeapon m_weapon;
         public RuntimeWeapon s_weapon;
     }

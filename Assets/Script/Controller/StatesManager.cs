@@ -317,6 +317,25 @@ namespace Tundayne
             a_hook.EquipWeapon(rw);
 
             anim.SetFloat(StaticStrings.weaponType, rw.w_actual.weaponType);
+            w_manager.SetCurrent(rw);
+        }
+
+        public bool ShootWeapon(float t)
+        {
+            bool retVal = false;
+
+            RuntimeWeapon c = w_manager.GetCurrent();
+
+            if (c.curAmmo > 0)
+            {
+                if (t - c.lastFired > c.w_actual.fireRate)
+                {
+                    retVal = true;
+                    c.ShootWeapon();
+                }
+            }
+            return retVal;
+
         }
 
         #endregion

@@ -50,5 +50,11 @@ namespace Tundayne
         public GameObject m_instance;
         public WeaponHook w_hook;
         public Weapon w_actual;
+
+        public void ShootWeapon()
+        {
+            w_hook.Shoot();
+            curAmmo--;
+        }
     }
 }

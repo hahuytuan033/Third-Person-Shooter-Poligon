@@ -23,6 +23,7 @@ namespace Tundayne
         public StatesManager states;
         public CameraHandler cameraHandler;
         public PlayerReferences p_references;
+        bool updateUI;
 
         void Start()
         {
@@ -33,6 +34,8 @@ namespace Tundayne
         {
             states.Init();
             cameraHandler.Init(this);
+            UpdatePlayerReferencesForWeapon(states.w_manager.GetCurrent());
+            updateUI = true;
             isInit = true;
         }
 
@@ -95,7 +98,7 @@ namespace Tundayne
                 return;
             }
             delta = Time.deltaTime;
-            //AimPosition();
+            AimPosition();
             GetInput_Update();
 
             InGame_UpdateStates_Update();
@@ -106,6 +109,13 @@ namespace Tundayne
             }
 
             states.Tick(delta);
+
+            if (updateUI)
+            {
+                updateUI = false;
+                UpdatePlayerReferencesForWeapon(states.w_manager.GetCurrent());
+                p_references.e_UpdateUI.Raise();
+            }
         }
 
         void InGame_UpdateStates_Update()
@@ -114,6 +124,11 @@ namespace Tundayne
             if (shootInput)
             {
                 states.statesManager.isAiming = true;
+                bool shootActual = states.ShootWeapon(Time.realtimeSinceStartup);
+                if (shootActual)
+                {
+                    updateUI = true;
+                }
             }
 
         }
@@ -139,6 +154,14 @@ namespace Tundayne
             {
                 states.input.aimPosition = hit.point;
             }
+        }
+        #endregion
+
+        #region Manager Functions
+        public void UpdatePlayerReferencesForWeapon(RuntimeWeapon r)
+        {
+            p_references.curAmmo.value = r.curAmmo;
+            p_references.curArrying.value = r.curCrrying;
         }
         #endregion
     }
