@@ -25,6 +25,7 @@ namespace Tundayne
         public PlayerReferences p_references;
         bool updateUI;
 
+
         void Start()
         {
             InitInGame();
@@ -161,7 +162,7 @@ namespace Tundayne
         public void UpdatePlayerReferencesForWeapon(RuntimeWeapon r)
         {
             p_references.curAmmo.value = r.curAmmo;
-            p_references.curArrying.value = r.curCrrying;
+            p_references.curArrying.value = r.curCarrying;
         }
         #endregion
     }

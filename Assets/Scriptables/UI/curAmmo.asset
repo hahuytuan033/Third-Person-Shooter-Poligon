@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69753ea6766118144b8a583a0e09e18c, type: 3}
   m_Name: curAmmo
   m_EditorClassIdentifier: 
-  value: 30
+  value: 0

@@ -20,7 +20,7 @@ namespace Tundayne
             RuntimeWeapon rw = new RuntimeWeapon();
             rw.w_actual = w;
             rw.curAmmo = w.magizineAmmo;
-            rw.curCrrying = w.maxAmmo;
+            rw.curCarrying = w.maxAmmo;
 
             runtime_weapons.Add(rw);
 
@@ -45,7 +45,7 @@ namespace Tundayne
     public class RuntimeWeapon
     {
         public int curAmmo;
-        public int curCrrying;
+        public int curCarrying;
         public float lastFired;
         public GameObject m_instance;
         public WeaponHook w_hook;

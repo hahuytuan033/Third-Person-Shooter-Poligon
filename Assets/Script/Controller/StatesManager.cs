@@ -29,6 +29,14 @@ namespace Tundayne
             public bool isInteracting;
         }
 
+        //ghi đè cái đạn và lựu đạn
+        [Header("Weapon Overrides")]
+        public bool overrideWeaponAmmo = false;
+        [Tooltip("If override is enabled, this value will be used for starting magazine ammo.")]
+        public int startingMagazineAmmo = 30;
+        [Tooltip("If override is enabled, this value will be used for starting carrying ammo.")]
+        public int startingCarryingAmmo = 160;
+
         public ResourcesManager r_manager;
         public WeaponManager w_manager;
         public ControllerStates statesManager;
@@ -231,6 +239,7 @@ namespace Tundayne
                 case CharState.normal:
                     statesManager.onGround = OnGround();
                     HandleAnimationAll();
+                    a_hook.Tick();
                     break;
                 case CharState.onAir:
                     rigid.drag = 0;
@@ -296,6 +305,12 @@ namespace Tundayne
             Weapon w = r_manager.GetWeapon(id);
             RuntimeWeapon rm = r_manager.runtime.WeaponToRuntimeWeapon(w);
 
+            if (overrideWeaponAmmo)
+            {
+                rm.curAmmo = startingMagazineAmmo;
+                rm.curCarrying = startingCarryingAmmo;
+            }
+
             GameObject go = Instantiate(w.modelPrefab);
             rm.m_instance = go;
             rm.w_actual = w;
@@ -330,8 +345,10 @@ namespace Tundayne
             {
                 if (t - c.lastFired > c.w_actual.fireRate)
                 {
+                    c.lastFired = t;
                     retVal = true;
                     c.ShootWeapon();
+                    a_hook.RecoilAnim();
                 }
             }
             return retVal;

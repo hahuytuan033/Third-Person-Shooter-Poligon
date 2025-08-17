@@ -24,9 +24,7 @@ namespace Tundayne
 
         public bool onIdleDisableOh;
         public bool disable_o_h;
-        public bool disable_m_h = true; 
-
-        RuntimeWeapon curWeapon;
+        public bool disable_m_h = true;
 
         public void Init(StatesManager st)
         {
@@ -51,8 +49,9 @@ namespace Tundayne
 
             rh_target.localPosition = w.m_h_ik.pos;
             rh_target.localEulerAngles = w.m_h_ik.rot;
+            basePosition = w.m_h_ik.pos;
+            baseRotation = w.m_h_ik.rot;
             onIdleDisableOh = rw.w_actual.onIdleDisableOh;
-            curWeapon = rw;
         }
 
         void OnAnimatorMove()
@@ -213,8 +212,9 @@ namespace Tundayne
                     recoilIsInit = false;
                 }
 
-                offsetPosition = Vector3.forward * curWeapon.w_actual.recoilZ.Evaluate(recoilT);
-                offsetRotation = Vector3.right * 90 * curWeapon.w_actual.recoilY.Evaluate(recoilT);
+
+                offsetPosition = Vector3.forward * states.w_manager.GetCurrent().w_actual.recoilZ.Evaluate(recoilT);
+                offsetRotation = Vector3.right * 90 * -states.w_manager.GetCurrent().w_actual.recoilY.Evaluate(recoilT);
 
                 rh_target.localPosition = basePosition + offsetPosition;
                 rh_target.localEulerAngles = baseRotation + offsetRotation;
