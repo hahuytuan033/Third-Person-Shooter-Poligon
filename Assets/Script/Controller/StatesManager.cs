@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Tundayne
@@ -230,6 +231,8 @@ namespace Tundayne
 
 
         #region Update
+        float rT;
+
         public void Tick(float d)
         {
             delta = d;
@@ -240,6 +243,17 @@ namespace Tundayne
                     statesManager.onGround = OnGround();
                     HandleAnimationAll();
                     a_hook.Tick();
+
+                    if (statesManager.isInteracting)
+                    {
+                        rT += delta;
+                        if (rT > 3)
+                        {
+                            statesManager.isInteracting = false;
+                            rT = 0;
+                        }
+                    }
+
                     break;
                 case CharState.onAir:
                     rigid.drag = 0;
@@ -340,6 +354,12 @@ namespace Tundayne
             bool retVal = false;
 
             RuntimeWeapon c = w_manager.GetCurrent();
+            Debug.Log("Số đạn hiện tại: " + c.curAmmo);
+            Debug.Log("Số đạn dự trữ: " + c.curCarrying);
+            if (c == null)
+            {
+                Debug.LogError("RuntimeWeapon đang là null!");
+            }
 
             if (c.curAmmo > 0)
             {
@@ -352,7 +372,34 @@ namespace Tundayne
                 }
             }
             return retVal;
+        }
 
+        public bool Reload()
+        {
+            bool retVal = false;
+            RuntimeWeapon c = w_manager.GetCurrent();
+            if (c.curAmmo < c.w_actual.magizineAmmo)
+            {
+                if (c.w_actual.magizineAmmo <= c.curCarrying)
+                {
+                    c.curAmmo = c.w_actual.magizineAmmo;
+                    c.curCarrying -= c.curAmmo;
+                }
+                else
+                {
+                    c.curAmmo = c.curCarrying;
+                    c.curCarrying = 0;
+                }
+
+                retVal = true;
+            }
+
+            if (retVal)
+            {
+                anim.SetTrigger(StaticStrings.reload);
+                statesManager.isInteracting = true;
+            }
+            return retVal;
         }
 
         #endregion

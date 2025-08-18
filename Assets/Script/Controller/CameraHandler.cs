@@ -37,6 +37,11 @@ namespace Tundayne
             target = inputHandler.states.mTransform;
         }
 
+        void FixedUpdate()
+        {
+            FixedTick(Time.deltaTime);
+        }
+
         public void FixedTick(float d)
         {
             delta = d;

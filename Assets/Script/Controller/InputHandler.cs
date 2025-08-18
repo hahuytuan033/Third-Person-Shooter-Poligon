@@ -53,7 +53,7 @@ namespace Tundayne
             InGame_UpdateStates_FixedUpdate();
             states.FixedTick(delta);
 
-            cameraHandler.FixedTick(delta);
+            //cameraHandler.FixedTick(delta);
 
 
         }
@@ -66,6 +66,7 @@ namespace Tundayne
 
         void InGame_UpdateStates_FixedUpdate()
         {
+            
             states.input.horizontal = horizontal;
             states.input.vertical = vertical;
 
@@ -121,6 +122,17 @@ namespace Tundayne
 
         void InGame_UpdateStates_Update()
         {
+            if (reloadInput)
+            {
+                bool isReloading = states.Reload();
+                if (isReloading)
+                {
+                    aimInput = false;
+                    shootInput = false;
+                    updateUI = true;
+                }
+            }
+
             states.statesManager.isAiming = aimInput;
             if (shootInput)
             {
@@ -150,6 +162,7 @@ namespace Tundayne
             //     aimInput = !aimInput;
             // }
             pivotInput = Input.GetButtonDown(StaticStrings.Pivot);
+            reloadInput = Input.GetButtonDown(StaticStrings.Reload);
         }
 
         void AimPosition()

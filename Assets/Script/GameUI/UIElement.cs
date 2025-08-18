@@ -10,7 +10,7 @@ namespace Tundayne.UI
     {
         UIUpdater updater;
 
-        void Awake()
+        void Start()
         {
             updater = UIUpdater.singleton;
 
@@ -18,6 +18,8 @@ namespace Tundayne.UI
             {
                 updater.elements.Add(this);
             }
+
+            Init();
         }
 
         public virtual void Init()
