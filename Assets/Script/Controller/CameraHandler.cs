@@ -14,7 +14,9 @@ namespace Tundayne
         public Transform target;
         public Transform pivot;
         public Transform mTransform;
-        public bool leftPivot;
+        public BoolVariable isLeftPivot;
+        public BoolVariable isAiming;
+        public BoolVariable isCrouching;
         float delta;
 
         float mouseX;
@@ -27,14 +29,12 @@ namespace Tundayne
         float tiltAngle;
 
         public CameraValues cameraValues;
-        StatesManager states;
+        
 
         public void Init(InputHandler inputHandler)
         {
             mTransform = this.transform;
-            states = inputHandler.states;
-            
-            target = states.mTransform;
+            target = inputHandler.states.mTransform;
         }
 
         public void FixedTick(float d)
@@ -48,7 +48,7 @@ namespace Tundayne
             HandleRotation();
 
             float speed = cameraValues.moveSpeed;
-            if (states.statesManager.isAiming)
+            if (isAiming.value)
             {
                 speed = cameraValues.aimSpeed;
             }
@@ -62,18 +62,18 @@ namespace Tundayne
             float targetZ = cameraValues.normalZ;
             float targetY = cameraValues.normalY;
 
-            if (states.statesManager.isCrouching)
+            if (isCrouching.value)
             {
                 targetY = cameraValues.crounchY;
             }
 
-            if (states.statesManager.isAiming)
+            if (isAiming.value)
             {
                 targetX = cameraValues.aimX;
                 targetZ = cameraValues.aimZ;
             }
 
-            if (leftPivot)
+            if (isLeftPivot.value)
             {
                 targetX = -targetX;
             }

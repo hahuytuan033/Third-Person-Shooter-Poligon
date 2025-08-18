@@ -132,6 +132,13 @@ namespace Tundayne
                 }
             }
 
+            p_references.isAiming.value = states.statesManager.isAiming;
+
+            if (pivotInput)
+            {
+                p_references.isLeftPivot.value = !p_references.isLeftPivot.value;
+            }
+
         }
 
         void GetInput_Update()
@@ -142,7 +149,7 @@ namespace Tundayne
             // {
             //     aimInput = !aimInput;
             // }
-
+            pivotInput = Input.GetButtonDown(StaticStrings.Pivot);
         }
 
         void AimPosition()

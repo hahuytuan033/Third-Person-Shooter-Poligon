@@ -6,8 +6,10 @@ namespace Tundayne
 {
     public static class StaticStrings
     {
+        // Input parameters
         public static string Horizontal = "Horizontal";
         public static string Vertical = "Vertical";
+        public static string Pivot = "Pivot";
 
         // Animator parameters
         public static string vertical = "vertical";
