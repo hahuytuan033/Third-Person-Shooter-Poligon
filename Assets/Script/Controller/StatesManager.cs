@@ -378,8 +378,13 @@ namespace Tundayne
         {
             bool retVal = false;
             RuntimeWeapon c = w_manager.GetCurrent();
+
+            Debug.Log($"Current Ammo: {c.curAmmo}");
+            Debug.Log($"Magazine Size: {c.w_actual.magizineAmmo}");
+
             if (c.curAmmo < c.w_actual.magizineAmmo)
             {
+                Debug.Log("Entering reload logic");
                 if (c.w_actual.magizineAmmo <= c.curCarrying)
                 {
                     c.curAmmo = c.w_actual.magizineAmmo;
@@ -395,6 +400,7 @@ namespace Tundayne
                 anim.SetTrigger("reload");
                 statesManager.isInteracting = true;
             }
+            Debug.Log("đã gọi Reload để nạp đạn");
 
             return retVal;
         }

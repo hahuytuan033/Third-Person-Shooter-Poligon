@@ -9,7 +9,7 @@ namespace Tundayne
     {
         [Header("HUD")]
         public IntVariable curAmmo;
-        public IntVariable curArrying;
+        public IntVariable curCarrying;
         public IntVariable health;
 
         [Header("States")]
@@ -20,6 +20,18 @@ namespace Tundayne
         [Header("UI")]
         public FloatVariable targetSpread;
         public GameEvent e_UpdateUI;
+
+        public void Init()
+        {
+
+            curAmmo.value = 0;
+            curCarrying.value = 0;
+            health.value = 100;
+            isAiming.value = false;
+            isLeftPivot.value = false;
+            isCrouching.value = false;
+            targetSpread.value = 30f;
+        }
     }
 }
 

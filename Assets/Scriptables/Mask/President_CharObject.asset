@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: president
   parentBone: 0
-  male_prefab: {fileID: 4022463413575309915, guid: 7764614b44e499a41bbfe291afd2b827, type: 3}
+  male_prefab: {fileID: 6984486317461324541, guid: 150d3e0113cb7ea44a93721df8346e23, type: 3}
   female_prefab: {fileID: 9188574991583652664, guid: cbf08f50d44696c41ad7a8b81858029c, type: 3}

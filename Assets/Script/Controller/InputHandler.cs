@@ -33,6 +33,7 @@ namespace Tundayne
 
         public void InitInGame()
         {
+            p_references.Init();
             states.Init();
             cameraHandler.Init(this);
             UpdatePlayerReferencesForWeapon(states.w_manager.GetCurrent());
@@ -183,7 +184,7 @@ namespace Tundayne
         public void UpdatePlayerReferencesForWeapon(RuntimeWeapon r)
         {
             p_references.curAmmo.value = r.curAmmo;
-            p_references.curArrying.value = r.curCarrying;
+            p_references.curCarrying.value = r.curCarrying;
         }
         #endregion
     }
