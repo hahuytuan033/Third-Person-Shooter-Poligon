@@ -79,14 +79,14 @@ namespace Tundayne
 
             states.input.rotateDirection = cameraHandler.mTransform.forward;
 
-            if (states.rigid.velocity.sqrMagnitude > 0)
+            if (states.rigid.velocity.sqrMagnitude > 0.5f)
             {
-                p_references.targetSpread.value = 120;
+                p_references.targetSpread.value = 250;
             }
-            else
-            {
-                p_references.targetSpread.value = 30;
-            }
+            // else
+            // {
+            //     p_references.targetSpread.value = 30;
+            // }
         }
         #endregion
 
@@ -140,6 +140,7 @@ namespace Tundayne
                 bool shootActual = states.ShootWeapon(Time.realtimeSinceStartup);
                 if (shootActual)
                 {
+                    p_references.targetSpread.value += 80;
                     updateUI = true;
                 }
             }

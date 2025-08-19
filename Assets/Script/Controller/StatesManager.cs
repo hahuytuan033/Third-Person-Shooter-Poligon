@@ -390,15 +390,12 @@ namespace Tundayne
                     c.curAmmo = c.curCarrying;
                     c.curCarrying = 0;
                 }
-
                 retVal = true;
-            }
-
-            if (retVal)
-            {
-                anim.SetTrigger(StaticStrings.reload);
+                //anim.CrossFade("Rig|Pistol_Reload", 0.2f);
+                anim.SetTrigger("reload");
                 statesManager.isInteracting = true;
             }
+
             return retVal;
         }
 
