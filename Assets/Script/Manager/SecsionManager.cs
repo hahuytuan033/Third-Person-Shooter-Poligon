@@ -7,9 +7,24 @@ namespace Tundayne
 {
     public class SecsionManager : MonoBehaviour
     {
+        public ResourcesManager r_manager;
         public GameEvent onGameStart;
         public GameEvent onSceneLoadedAdditive;
         public GameEvent onSceneLoadedSingle;
+
+        void Awake()
+        {
+            r_manager.Init();
+
+        }
+
+        void Start()
+        {
+            if (onGameStart != null)
+            {
+                onGameStart.Raise();
+            }
+        }
 
         public void LoadSceneAsyncAdditive(string lvl)
         {
@@ -27,6 +42,7 @@ namespace Tundayne
             if (onSceneLoadedAdditive != null)
             {
                 onSceneLoadedAdditive.Raise();
+                onSceneLoadedAdditive = null;
             }
         }
 
@@ -36,6 +52,7 @@ namespace Tundayne
             if (onSceneLoadedSingle != null)
             {
                 onSceneLoadedSingle.Raise();
+                onSceneLoadedSingle = null;
             }
         }
     }

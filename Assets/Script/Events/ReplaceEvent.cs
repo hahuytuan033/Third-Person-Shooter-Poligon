@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReplaceEvent : MonoBehaviour
+namespace Tundayne
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ReplaceEvent : MonoBehaviour
     {
-        
-    }
+        public GameEvent targetEvent;
+        public GameEventListener listener;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Replace()
+        {
+            listener.gameEvent.UnRegister(listener);
+            listener.gameEvent = targetEvent;
+            targetEvent.Register(listener);
+        }
     }
 }
