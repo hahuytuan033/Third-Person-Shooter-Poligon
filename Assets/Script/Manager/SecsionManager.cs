@@ -7,6 +7,7 @@ namespace Tundayne
 {
     public class SecsionManager : MonoBehaviour
     {
+        public GameSettings gameSettings;
         public ResourcesManager r_manager;
         public GameEvent onGameStart;
         public GameEvent onSceneLoadedAdditive;
@@ -14,7 +15,7 @@ namespace Tundayne
 
         void Awake()
         {
-            r_manager.Init();
+            gameSettings.r_manager.Init();
 
         }
 
@@ -29,6 +30,11 @@ namespace Tundayne
         public void LoadSceneAsyncAdditive(string lvl)
         {
             StartCoroutine(LoadSceneAsyncAdditive_Actual(lvl));
+        }
+
+        public void LoadLevelFromGameSettings()
+        {
+            LoadSceneAsyncSingle(gameSettings.uiSettings.currentJob.targetLevel);
         }
 
         public void LoadSceneAsyncSingle(string lvl)

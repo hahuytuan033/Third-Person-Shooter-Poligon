@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163d1630c8905441974e127fda77b3d, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  r_manager: {fileID: 11400000, guid: aaaaca86199f1b746af2bdb03c6171a5, type: 2}
+  version: 0
+  usserName: Tundayne
+  isConnected: 0
+  uiSettings:
+    currentJob: {fileID: 11400000, guid: bccf4c00df9bf1048942241f3e55bc80, type: 2}
+    onJobChanged: {fileID: 11400000, guid: bd80de801996c8a46ae4a3b18059e2a0, type: 2}
+    jobType: {fileID: 11400000, guid: a45b3c1ed3f5a46478fe2a8d1edd1535, type: 2}
+    job_description: {fileID: 11400000, guid: de6ea7bfbc243e443a496f3a49f74b0b, type: 2}
+    jobImg: {fileID: 11400000, guid: f982ec6f4cf886e44922a0f4846228bd, type: 2}

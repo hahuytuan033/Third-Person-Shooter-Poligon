@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/PolygonCyberCity/Scenes/Demo_Interior.unity
+    guid: 918bdecd968176e4782a0f81aac98b43
+  - enabled: 1
+    path: Assets/PolygonCyberCity/Scenes/Level 1.unity
+    guid: c623c0b72fb95f143b7860e201bac88d
   m_configObjects: {}

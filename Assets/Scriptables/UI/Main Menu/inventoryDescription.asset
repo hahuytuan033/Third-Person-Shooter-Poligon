@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00015dabe3e76b344a0372f71dd964ea, type: 3}
   m_Name: inventoryDescription
   m_EditorClassIdentifier: 
-  value: BUY / SELL GEAR
+  value: 
