@@ -67,6 +67,17 @@ namespace Tundayne
         #endregion
 
         #region Init
+        public void LoadPlayerprofile(PlayerProfile p, ResourcesManager r)
+        {
+            w_manager.mw_id = p.mainWeapon_id;
+            w_manager.sw_id = p.secondWeapon_id;
+
+            character = GetComponent<Character>();
+            character.isFemale = !p.isMale;
+            character.outfitId = p.outfitId;
+            //character.maskObj = r_manager.GetMask(p.mask_id);
+        }
+
         public void Init()
         {
             r_manager.Init();
@@ -91,7 +102,6 @@ namespace Tundayne
 
             Init_WeaponManager();
 
-            character = GetComponent<Character>();
             character.Init(this);
         }
 

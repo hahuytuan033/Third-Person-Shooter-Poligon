@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309e362f1f6bfc44bb00090f2320f257, type: 3}
   m_Name: President_Mask
   m_EditorClassIdentifier: 
-  id: president
+  id: President
   enableHair: 0
   enableEyebrows: 0
   obj: {fileID: 11400000, guid: e7d54e2dcdeaa4942b679afd36eaf527, type: 2}

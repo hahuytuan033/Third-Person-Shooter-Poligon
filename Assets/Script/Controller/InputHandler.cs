@@ -23,17 +23,28 @@ namespace Tundayne
         public StatesManager states;
         public CameraHandler cameraHandler;
         public PlayerReferences p_references;
+        public GameSettings gameSettings;
         bool updateUI;
 
 
         void Start()
         {
+            if (gameSettings == null)
+            {
+                gameSettings = Resources.Load("GameSettings") as GameSettings;
+            }
+            gameSettings.r_manager.Init();
             InitInGame();
         }
 
         public void InitInGame()
         {
             p_references.Init();
+            if (states.r_manager == null)
+            {
+                states.r_manager = gameSettings.r_manager;
+            }
+            states.LoadPlayerprofile(gameSettings.playerProfile, gameSettings.r_manager);
             states.Init();
             cameraHandler.Init(this);
             UpdatePlayerReferencesForWeapon(states.w_manager.GetCurrent());

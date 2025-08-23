@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r_manager: {fileID: 11400000, guid: aaaaca86199f1b746af2bdb03c6171a5, type: 2}
   version: 0
-  usserName: Tundayne
   isConnected: 0
   uiSettings:
     currentJob: {fileID: 11400000, guid: bccf4c00df9bf1048942241f3e55bc80, type: 2}
@@ -22,3 +21,10 @@ MonoBehaviour:
     jobType: {fileID: 11400000, guid: a45b3c1ed3f5a46478fe2a8d1edd1535, type: 2}
     job_description: {fileID: 11400000, guid: de6ea7bfbc243e443a496f3a49f74b0b, type: 2}
     jobImg: {fileID: 11400000, guid: f982ec6f4cf886e44922a0f4846228bd, type: 2}
+  playerProfile:
+    usserName: 
+    outfitId: Suit
+    mask_id: President
+    mainWeapon_id: Pistol
+    secondWeapon_id: Sword
+    isMale: 0

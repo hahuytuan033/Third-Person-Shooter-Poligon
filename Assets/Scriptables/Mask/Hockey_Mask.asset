@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 
   enableHair: 0
   enableEyebrows: 0
-  obj: {fileID: 0}
+  obj: {fileID: 11400000, guid: 046c93f824fa42b4fbabe282e2f5099e, type: 2}

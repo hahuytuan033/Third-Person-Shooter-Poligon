@@ -10,9 +10,10 @@ namespace Tundayne
     {
         public ResourcesManager r_manager;
         public int version = 0;
-        public string usserName;
         public bool isConnected;
         public UISettings uiSettings;
+
+        public PlayerProfile playerProfile;
 
         [System.Serializable]
         public class UISettings
