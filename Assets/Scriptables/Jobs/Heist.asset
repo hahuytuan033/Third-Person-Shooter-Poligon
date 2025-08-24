@@ -15,6 +15,6 @@ MonoBehaviour:
   targetLevel: Level 2
   type: 1
   maxPlayers: 8
-  jobDescription: Bullets fly and guns blaze.This is a battle for survival where
-    reflexes and strategy determine who lives.
-  jobImg: {fileID: 21300000, guid: b6026274f1f2c5042acf4fd9c0648264, type: 3}
+  jobDescription: A daring heist where you must break into a heavily guarded building
+    to steal valuable items and escape before the alarm goes off.
+  jobImg: {fileID: 21300000, guid: 11a2d3591c44acf4395776bf8c196cc1, type: 3}
